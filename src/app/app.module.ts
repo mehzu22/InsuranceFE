@@ -36,6 +36,9 @@ import { AddagentComponent } from './addagent/addagent.component';
 import { UpdateAgentComponent } from './update-agent/update-agent.component';
 import { DeleteAgentComponent } from './delete-agent/delete-agent.component';
 import { FormsModule } from '@angular/forms';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 
 
 @NgModule({
@@ -67,6 +70,9 @@ import { FormsModule } from '@angular/forms';
     AddagentComponent,
     UpdateAgentComponent,
     DeleteAgentComponent,
+    AddEmployeeComponent,
+    UpdateEmployeeComponent,
+    DeleteEmployeeComponent,
     
   ],
   imports: [

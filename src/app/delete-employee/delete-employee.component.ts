@@ -1,20 +1,18 @@
-
-import { Component, Inject } from '@angular/core';
+import { Component,Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AgentService } from '../services/agentServices.service';
+import { EmployeeService } from '../services/employee.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 @Component({
-  selector: 'app-delete-agent',
-  templateUrl: './delete-agent.component.html',
-  styleUrls: ['./delete-agent.component.css']
+  selector: 'app-delete-employee',
+  templateUrl: './delete-employee.component.html',
+  styleUrls: ['./delete-employee.component.css']
 })
-export class DeleteAgentComponent {
-
-  agentId: any;
+export class DeleteEmployeeComponent {
+  employeeId: any;
   constructor(
-    public dialogRef: MatDialogRef<DeleteAgentComponent>,
-    private agentService: AgentService,
+    public dialogRef: MatDialogRef<DeleteEmployeeComponent>,
+    private empService: EmployeeService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
@@ -23,7 +21,7 @@ export class DeleteAgentComponent {
   }
 
   onDeleteClick(): void {
-    this.agentService.deleteAgent(this.agentId).subscribe({
+    this.empService.deleteEmployee(this.employeeId).subscribe({
       next:(response)=>{
         alert("Agent deleted successfully")
         console.log(response)
@@ -34,4 +32,3 @@ export class DeleteAgentComponent {
     })
   }
 }
-

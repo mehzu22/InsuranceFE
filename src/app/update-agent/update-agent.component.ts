@@ -61,6 +61,11 @@ export class UpdateAgentComponent {
   //   this.auth.getAllAgentBuId(event?.target.value)
   // }
   editAgent(formData: any) {
-    this.auth.updateAgent(formData).subscribe({})
+    formData.isActive = formData.isActive === 'true';
+    this.auth.updateAgent(formData).subscribe({
+      next:(response)=>{
+        alert("Agent updated successfully")
+      }
+    })
   }
 }

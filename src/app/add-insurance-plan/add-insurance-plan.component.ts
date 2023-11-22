@@ -19,6 +19,7 @@ export class AddInsurancePlanComponent {
 
   addNewInsurancePlan(data:any){
     console.log("DAta : ",data)
+    data.isActive = data.isActive === 'true';
     this.insuranceService.addNewInsurancePlan(data).subscribe({
       next:(result)=>{
         alert("New Insurance Scheme Added Successfully!")

@@ -41,13 +41,16 @@ export class AddagentComponent {
     return this.signupAgentForm.get('userId')
   }
   get commissionEarnedValidator() {
-    return this.signupAgentForm.get('commission')
+    return this.signupAgentForm.get('commissionEarned')
   }
   get isActiveValidator() {
     return this.signupAgentForm.get('isActive')
   }
   constructor(private auth: AgentService, private router: Router) { }
+
   createAgent(formData: any) {
+    console.log(formData)
+    formData.isActive = formData.isActive === 'true';
     this.auth.addAgent(formData).subscribe({
       next:(response)=>{
         alert("Agent added successfully")

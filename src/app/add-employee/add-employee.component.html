@@ -1,8 +1,8 @@
 <div class="container">
-    <h2 mat-dialog-title>Add Agent</h2>
+    <h2 mat-dialog-title>Add Employee</h2>
     <mat-dialog-content class="mat-typography">
         <br>
-        <form [formGroup]="signupAgentForm" (ngSubmit)=" createAgent(signupAgentForm.value)">
+        <form [formGroup]="signupEmpForm" (ngSubmit)=" createEmp(signupEmpForm.value)">
             First Name: <input type="text" placeholder="Enter first name" formControlName = "firstName">
             <span *ngIf="firstNameValidator && firstNameValidator.invalid && firstNameValidator.touched">
               Please enter valid first name</span>
@@ -11,10 +11,7 @@
             <span *ngIf="lastNameValidator && lastNameValidator.invalid && lastNameValidator.touched">
              please enter valid last name</span>
             <br><br>
-            Qualification: <input type="text" placeholder="Enter qualification" formControlName = "qualification">
-            <span *ngIf="qualificationValidator && qualificationValidator.invalid && qualificationValidator.touched">
-              Please enter valid qualification</span>
-            <br><br>
+           
             E-Mail: <input type="email" placeholder="Enter email address" formControlName = "email">
             <span *ngIf="emailValidator && emailValidator.invalid && emailValidator.touched">
               Please enter vaild emailId</span>
@@ -27,15 +24,15 @@
             <span *ngIf="userIdValidator && userIdValidator.invalid && userIdValidator.touched">
               Please enter user id properly</span>
             <br><br>
-            Commission Earned: <input type="text" placeholder="Enter commission earned" formControlName = "commissionEarned">
-            <span *ngIf="commissionEarnedValidator && commissionEarnedValidator.invalid && commissionEarnedValidator.touched">
-              Please enter proper commission earned value
+            Salary: <input type="number" placeholder="Enter salary " formControlName = "salary">
+            <span *ngIf="salaryValidator && salaryValidator.invalid && salaryValidator.touched">
+              Please enter proper salary value
             </span>
               
             <br><br>
-            is active: <input type="text" placeholder="Enter is active" formControlName = "isActive">
+            Is Active: <input type="checkbox" formControlName="isActive">
             <span *ngIf="isActiveValidator && isActiveValidator.invalid && isActiveValidator.touched">
-              Please enter valid Value</span>
+              Please select checkbox</span>
             <br><br>
             <button>Submit</button>
 
@@ -44,7 +41,7 @@
     </mat-dialog-content>
     <mat-dialog-actions [align]="'end'" style="padding: 30px;">
         <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="primary" [disabled]="signupEmpForm.invalid">Save</button>
 
     </mat-dialog-actions>
 </div>
